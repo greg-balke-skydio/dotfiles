@@ -145,10 +145,19 @@ let g:NERDDefaultAlign = 'left'
 """ Gutentags
 let g:gutentags_ctags_tagfile = '.git/tags'
 let g:gutentags_ctags_extra_args = [
-    \ '--tag-relative=yes',
     \ '--fields=+ailmnS',
+    \ '--links=no',
+    \ '--languages=C,C++,Python'
     \ ]
 " let g:gutentags_cache_dir = '~/.cache/tags'
+" Ignore files in .gitignore
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_ctags_exclude = [
+            \ 'third_party',
+            \ 'build',
+            \ 'third_party_modules',
+            \ 'kernel'
+            \ ]
 
 """ Ctrl+P
 "let g:ctrlp_working_path_mode = 'ra'
